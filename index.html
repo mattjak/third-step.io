@@ -13,11 +13,10 @@
             <img src="images/logo.png" height="80" width="40"/>
         </div>
         <div class="slogan-container">
-        <p class="header-slogan">НЕТ ЗДОРОВЫЙ ЛЮДЕЙ, ЕСТЬ НЕДООБСЛЕДОВАННЫЕ!</p>
+        <p class="header-slogan">НЕТ ЗДОРОВЫХ ЛЮДЕЙ, ЕСТЬ НЕДООБСЛЕДОВАННЫЕ!</p>
         <p class="header-slogan">ЗАПИШИСЬ К ДОКТОРУ!</p>
         </div>
         <button id="modal-button" class="modal-button-style">ЗАПИСАТЬСЯ</button>
-
     </div>
 </header>
 <div class="main">
@@ -27,14 +26,13 @@
             <div class="cart">
                 <p class="customer-name">Bogdan</p>
                 <p class="chosen-doctor">ginecolog</p>
-                <button id="show-more" class="show-more-button">show more</button>
-                <button id="delete-cart" class="delete-button">delete cart</button>
-
-
+                <button id="show-more" class="show-del-button">show more</button>
+                <button id="delete-cart" class="show-del-button">delete cart</button>
             </div>
         </div>
-        <div id="modal-window" class="modal-window-none">
-            <select name="" id="doctor-option">
+        <div id="modal-window" class="modal-window">
+            <span id="close-modal-btn" class="close-modal">X</span>
+            <select name="" id="doctor-option" class="doc-option">
                 <option value="">Выбрать Врача</option>
                 <option value="">Кардиолог</option>
                 <option value="">Терапевт</option>
@@ -47,7 +45,7 @@
             <input id="age" type="text" class="input-style" placeholder="Возраст">
             <input id="name" type="text" class="input-style" placeholder="Фамилия Имя Отчество">
             <input id="last-visit-date" type="text" class="input-style"  placeholder="Дата Последнего Визита">
-            <textarea maxlength="400" name="comments" id="comments-field" cols="20" rows="1"></textarea>
+            <textarea maxlength="400" name="comments" id="comments-field" cols="20" rows="3" placeholder="Ваш комментарий"></textarea>
             <button id="create-cart" class="create-cart-style">Create</button>
         </div>
     </div>

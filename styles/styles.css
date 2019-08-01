@@ -32,13 +32,18 @@ header{
     color: #00cbf6;
     font-weight: bold;
     background-color: #FFFFFF;
+    transition-property: background-color, color;
+}
+.modal-button-style:hover {
+    color: #fff;
+    background-color: #00cbf6;
+    transition: ease-in-out 0.5s;
 }
 .modal-window-none{
     display: none;
-
 }
 .modal-window{
-    display: flex;
+    display: none;
     justify-content: space-evenly;
     align-items:center;
     width: 400px;
@@ -46,7 +51,8 @@ header{
     border: 2px solid #00cbf6;
     flex-direction: column;
     border-radius: 5px;
-
+    background-color:#fff;
+    position: absolute;
 }
 .card-field{
     width: 100%;
@@ -72,7 +78,6 @@ header{
     left: 50%;
     top: 50%;
     transform: translate(-50%);
-
 }
 .logo-container {
     display: flex;
@@ -104,4 +109,66 @@ header{
 .input-style:hover {
     border: 1px solid red;
 }
-
+.create-cart-style {
+    width: 150px;
+    padding: 5px;
+    border: 2px solid #00cbf6;
+    border-radius: 3px;
+    color: #00cbf6;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    background-color: #fff;
+    font-weight: 600;
+}
+.create-cart-style:hover {
+    color: #FFFFFF;
+    background-color: #00cbf6;
+}
+.doc-option {
+    width: 180px;
+    padding: 5px;
+    border: 2px solid #00cbf6;
+    border-radius: 3px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    background-color: #fff;
+    font-weight: 600;
+}
+.cart {
+    margin: 10px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    color: #00cbf6;
+    border:2px solid #1c2a3377;
+    border-radius: 5px;
+}
+.card-field {
+    padding: 5px;
+    border: 2px solid #00cbf6;
+    border-radius: 10px;
+    background-color: #f0eff5;
+}
+.show-del-button {
+    padding: 3px;
+    border: 2px solid #00cbf6;
+    border-radius: 5px;
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    color: #00cbf6;
+    font-weight: bold;
+    background-color: #FFFFFF;
+}
+.show-del-button:hover {
+    background-color: #00cbf6;
+    color: #fff;
+}
+.close-modal {
+    align-self: flex-end;
+    padding: 0 10px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    color: #00cbf6;
+    font-weight: bold;
+}

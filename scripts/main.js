@@ -1,9 +1,11 @@
 const buttonLink = document.getElementById("modal-button");
+const containerLink = document.getElementById("modal-window");
+const closeBtn = document.getElementById('close-modal-btn');
+
 buttonLink.addEventListener("click", function () {
- const containerLink = document.getElementById("modal-window");
- containerLink.classList.remove("modal-window-none");
- containerLink.classList.add("modal-window");
-
-    console.log("anus")
-
+ containerLink.style.display = 'flex';
+ });
+ closeBtn.addEventListener('click', function() {
+    containerLink.style.display = 'none';
+    console.log (closeBtn);
 });
