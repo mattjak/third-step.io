@@ -3,43 +3,35 @@ p{
     padding: 5px 0;
 }
 header{
-    background-color: azure;
+    background-color: #1c2a33;
 }
 .container{
     width: 1180px;
     margin: 0 auto;
     padding: 0 10px;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .modal-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-}
-.nav-bar{
-    list-style-type: none;
-    width: 60%;
-    justify-content: space-around;
-    display: flex;
-}
-.nav-bar-item{
-    display: inline-block;
-}
-.nav-bar-link{
-    text-decoration: none;
+    padding: 30px;
 }
 .modal-button-style{
     display: inline-block;
     padding: 10px;
-    border: 1px solid black;
-    text-decoration: none;
-}
-nav{
-    display: flex;
-    padding: 40px 0;
-    justify-content: space-between;
+    border: 2px solid #00cbf6;
+    border-radius: 5px;
+    width: 170px;
+    height: 50px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    color: #00cbf6;
+    font-weight: bold;
+    background-color: #FFFFFF;
 }
 .modal-window-none{
     display: none;
@@ -47,14 +39,13 @@ nav{
 }
 .modal-window{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items:center;
     width: 400px;
     height: 400px;
-    border: 1px solid black;
+    border: 2px solid #00cbf6;
     flex-direction: column;
-    position: absolute;
-    top: 40px;
+    border-radius: 5px;
 
 }
 .card-field{
@@ -82,5 +73,35 @@ nav{
     top: 50%;
     transform: translate(-50%);
 
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+}
+.slogan-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.header-slogan {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #00cbf6;
+}
+.input-style {
+    border: 1px solid #00cbf6;
+    border-radius: 5px;
+    color: #1c2a33;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 5px;
+    text-align: center;
+}
+.input-style:hover {
+    border: 1px solid red;
 }
 
