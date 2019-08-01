@@ -21,7 +21,7 @@
 </header>
 <div class="main">
     <div class="container modal-container">
-        <div class="card-field">
+        <div id="card-field" class="card-field">
             <p class="no-items">No items have been added</p>
             <div class="cart">
                 <p class="customer-name">Bogdan</p>
@@ -34,9 +34,9 @@
             <span id="close-modal-btn" class="close-modal">X</span>
             <select name="" id="doctor-option" class="doc-option">
                 <option value="">Выбрать Врача</option>
-                <option value="">Кардиолог</option>
-                <option value="">Терапевт</option>
-                <option value="">Стоматолог</option>
+                <option id="card" value="cardiology">Кардиолог</option>
+                <option id="therap" value="therapist">Терапевт</option>
+                <option id="dent" value="dentist">Стоматолог</option>
             </select>
             <input id="visit-aim" type="text" class="input-style" placeholder="Цель визита">
             <input id="pressure" type="text"  class="input-style" placeholder="Ваше Давление">
