@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="logo-container">
+            <img src="images/logo.png" height="80" width="40"/>
+        </div>
+        <div class="slogan-container">
+        <p class="header-slogan">НЕТ ЗДОРОВЫХ ЛЮДЕЙ, ЕСТЬ НЕДООБСЛЕДОВАННЫЕ!</p>
+        <p class="header-slogan">ЗАПИШИСЬ К ДОКТОРУ!</p>
+        </div>
+        <button id="modal-button" class="modal-button-style">ЗАПИСАТЬСЯ</button>
+    </div>
+</header>
+<div class="main">
+    <div class="container modal-container">
+        <div class="card-field">
+            <p class="no-items">No items have been added</p>
+            <div class="cart">
+                <p class="customer-name">Bogdan</p>
+                <p class="chosen-doctor">ginecolog</p>
+                <button id="show-more" class="show-del-button">show more</button>
+                <button id="delete-cart" class="show-del-button">delete cart</button>
+            </div>
+        </div>
+        <div id="modal-window" class="modal-window">
+            <span id="close-modal-btn" class="close-modal">X</span>
+            <select name="" id="doctor-option" class="doc-option">
+                <option value="">Выбрать Врача</option>
+                <option value="">Кардиолог</option>
+                <option value="">Терапевт</option>
+                <option value="">Стоматолог</option>
+            </select>
+            <input id="visit-aim" type="text" class="input-style" placeholder="Цель визита">
+            <input id="pressure" type="text"  class="input-style" placeholder="Ваше Давление">
+            <input id="bodyIndex" type="text" class="input-style" placeholder="Индекс Массы Тела">
+            <input id="heart-illnesses" type="text"  class="input-style" placeholder="Перенесенные заболевания сердечно-сосудистой системы">
+            <input id="age" type="text" class="input-style" placeholder="Возраст">
+            <input id="name" type="text" class="input-style" placeholder="Фамилия Имя Отчество">
+            <input id="last-visit-date" type="text" class="input-style"  placeholder="Дата Последнего Визита">
+            <textarea maxlength="400" name="comments" id="comments-field" cols="20" rows="3" placeholder="Ваш комментарий"></textarea>
+            <button id="create-cart" class="create-cart-style">Create</button>
+        </div>
+    </div>
+</div>
+<script src="scripts/main.js"></script>
+</body>
+</html>
