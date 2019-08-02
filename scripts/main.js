@@ -1,8 +1,20 @@
 class DoctorVisit {
     constructor(visitAim,dataVisit,name ){
-        this.visitAim = visitAim;
-        this.dataVisit = dataVisit;
-        this.name = name;
+        this._visitAim = visitAim;
+        this._dataVisit = dataVisit;
+        this._name = name;
+    }
+    get visitAim() {
+        return this._visitAim;
+    }
+    get dataVisit () {
+        return  this._dataVisit;
+    }
+    get name() {
+        return this._name;
+    }
+    set visitAim(value) {
+        this._visitAim = value;
     }
 }
 class Cardio extends DoctorVisit{
@@ -12,26 +24,12 @@ class Cardio extends DoctorVisit{
         this.illnesses = illnesses;
         this.age = age;
     }
-    showInputFields(){
-        const cardLink = document.getElementById("doctor-option");
-        const doc =  cardLink.value;
-        console.log(doc);
-        if (doc === "card"){
-            console.log("anus");
-        }
-            }
-        showConsole(){
-        console.log("Denis Alkash))))))")
-        }
 }
-class Dantist extends DoctorVisit{
+class Dentist extends DoctorVisit{
     constructor(visitAim,dataVisit,name,lastVisit ){
         super(visitAim,dataVisit,name );
         this.lastVisit = lastVisit;
     }
-
-
-
 }
 class Therapist extends DoctorVisit{
     constructor(visitAim,dataVisit,name,age ){
@@ -39,33 +37,54 @@ class Therapist extends DoctorVisit{
         this.age = age;
     }
 }
-const doctorCardio = new Cardio();
-doctorCardio.showInputFields();
- doctorCardio.showConsole();
-
-
-
+const doctorCardio = new Cardio('cardiology');
+const doctorDentist = new Dentist('dentist');
+const doctorTherapist = new Therapist('therapist');
 const buttonLink = document.getElementById("modal-button");
 const containerLink = document.getElementById("modal-window");
 const closeBtn = document.getElementById('close-modal-btn');
-
+function docVisit() {
+    let docList = document.getElementById('doctor-option');
+    let userChoose = docList.options[docList.selectedIndex].value;
+    if(userChoose === 'dentist') {
+        fullName.style.display = 'block';
+        visit.style.display = 'none';
+        lastVisit.style.display = 'block';
+        pressure.style.display = 'none';
+        bodyIndex.style.display = 'none';
+        heart.style.display = 'none';
+        age.style.display = 'block';
+    }
+    if(userChoose === 'therapist') {
+        visit.style.display = 'none';
+        lastVisit.style.display = 'block';
+        fullName.style.display = 'block';
+        pressure.style.display = 'none';
+        bodyIndex.style.display = 'none';
+        heart.style.display = 'none';
+        age.style.display = 'none';
+    }
+    if(userChoose === 'cardiology') {
+        visit.style.display = 'block';
+        lastVisit.style.display = 'block';
+        fullName.style.display = 'block';
+        pressure.style.display = 'block';
+        bodyIndex.style.display = 'block';
+        heart.style.display = 'block';
+    }
+}
+let visit= document.getElementById('visit-aim');
+let pressure = document.getElementById('pressure');
+let bodyIndex = document.getElementById('bodyIndex');
+let heart = document.getElementById('heart-illnesses');
+let age = document.getElementById('age');
+let fullName = document.getElementById('name');
+let lastVisit= document.getElementById('last-visit-date');
 buttonLink.addEventListener("click", function () {
- containerLink.style.display = 'flex';
- });
- closeBtn.addEventListener('click', function() {
+    containerLink.style.display = 'flex';
+});
+closeBtn.addEventListener('click', function() {
     containerLink.style.display = 'none';
     console.log (closeBtn);
 });
-const createCartLink = document.getElementById('create-cart');
-createCartLink.addEventListener("click", function () {
-    const cartField = document.getElementById('card-field');
-    let cart = document.createElement("div");
-    cart.className = "cart";
-    cart.innerHTML = "anus";
-    cartField.appendChild(cart);
-});
-
-
-
-
 

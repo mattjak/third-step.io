@@ -97,6 +97,7 @@ header{
     color: #00cbf6;
 }
 .input-style {
+    display: none;
     border: 1px solid #00cbf6;
     border-radius: 5px;
     color: #1c2a33;
