@@ -37,12 +37,16 @@ class Therapist extends DoctorVisit{
         this.age = age;
     }
 }
+
+
 const doctorCardio = new Cardio('cardiology');
 const doctorDentist = new Dentist('dentist');
 const doctorTherapist = new Therapist('therapist');
 const buttonLink = document.getElementById("modal-button");
 const containerLink = document.getElementById("modal-window");
 const closeBtn = document.getElementById('close-modal-btn');
+const createCart = document.getElementById('create-cart');
+const cartLink = document.getElementById('cart');
 function docVisit() {
     let docList = document.getElementById('doctor-option');
     let userChoose = docList.options[docList.selectedIndex].value;
@@ -88,4 +92,9 @@ closeBtn.addEventListener('click', function() {
     containerLink.style.display = 'none';
     console.log (closeBtn);
 });
+createCart.addEventListener('click', function() {
+    cartLink.style.display = 'inline-block';
+});
+
+
 
