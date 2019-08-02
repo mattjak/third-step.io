@@ -47,6 +47,7 @@ const containerLink = document.getElementById("modal-window");
 const closeBtn = document.getElementById('close-modal-btn');
 const createCart = document.getElementById('create-cart');
 const cartLink = document.getElementById('cart');
+const cartFieldLink = document.getElementById('card-field');
 function docVisit() {
     let docList = document.getElementById('doctor-option');
     let userChoose = docList.options[docList.selectedIndex].value;
@@ -92,8 +93,21 @@ closeBtn.addEventListener('click', function() {
     containerLink.style.display = 'none';
     console.log (closeBtn);
 });
+// createCart.addEventListener('click', function() {
+//     cartLink.style.display = 'inline-block';
+//     containerLink.style.display = 'none';
+// });
 createCart.addEventListener('click', function() {
-    cartLink.style.display = 'inline-block';
+     const newCard = document.createElement('div');
+     newCard.className = 'card';
+     newCard.innerHTML = 'Создалась новая карточка';
+    cartFieldLink.appendChild(newCard);
+
+
+
+
+    //cartLink.style.display = 'inline-block';
+    containerLink.style.display = 'none';
 });
 
 

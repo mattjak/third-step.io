@@ -142,7 +142,7 @@ header{
     color: #00cbf6;
     border:2px solid #1c2a3377;
     border-radius: 5px;
-    display: none;
+    display: inline-block;
 }
 .card-field {
     padding: 5px;
