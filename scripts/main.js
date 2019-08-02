@@ -47,16 +47,7 @@ function docVisit() {
     let docList = document.getElementById('doctor-option');
     let userChoose = docList.options[docList.selectedIndex].value;
     if(userChoose === 'dentist') {
-        fullName.style.display = 'block';
-        visit.style.display = 'none';
-        lastVisit.style.display = 'block';
-        pressure.style.display = 'none';
-        bodyIndex.style.display = 'none';
-        heart.style.display = 'none';
-        age.style.display = 'block';
-    }
-    if(userChoose === 'therapist') {
-        visit.style.display = 'none';
+        visit.style.display = 'block';
         lastVisit.style.display = 'block';
         fullName.style.display = 'block';
         pressure.style.display = 'none';
@@ -64,13 +55,23 @@ function docVisit() {
         heart.style.display = 'none';
         age.style.display = 'none';
     }
+    if(userChoose === 'therapist') {
+        visit.style.display = 'block';
+        age.style.display = 'block';
+        fullName.style.display = 'block';
+        lastVisit.style.display = 'none';
+        pressure.style.display = 'none';
+        bodyIndex.style.display = 'none';
+        heart.style.display = 'none';
+    }
     if(userChoose === 'cardiology') {
         visit.style.display = 'block';
-        lastVisit.style.display = 'block';
-        fullName.style.display = 'block';
+        lastVisit.style.display = 'none';
         pressure.style.display = 'block';
         bodyIndex.style.display = 'block';
         heart.style.display = 'block';
+        age.style.display = 'block';
+        fullName.style.display = 'block';
     }
 }
 let visit= document.getElementById('visit-aim');
