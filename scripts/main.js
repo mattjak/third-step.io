@@ -133,11 +133,14 @@ createCart.addEventListener("click", function () {
     const inputs = document.getElementsByClassName('input-style');
 
     for (let i = 0; i < inputs.length; i++) {
-        value.push(inputs[i].value)
+        if(inputs[i].style.display !== "none"){
+            value.push(inputs[i].value)
+        }
     }
     const doctorVisit = new DoctorVisit(value[0], value[1], value[2],);
     if (userChoose === 'dentist') {
-        const dentistVisit = new Dentist(value[0], value[1], value[2], value[3]);
+
+        const dentistVisit = new Dentist(value[0], value[1], value[2]);
     }
     else if (userChoose === 'therapist') {
         const therapistVisit = new Therapist(value[0], value[1], value[2]);
