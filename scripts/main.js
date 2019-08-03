@@ -91,23 +91,25 @@ buttonLink.addEventListener("click", function () {
 });
 closeBtn.addEventListener('click', function() {
     containerLink.style.display = 'none';
-    console.log (closeBtn);
 });
-// createCart.addEventListener('click', function() {
-//     cartLink.style.display = 'inline-block';
-//     containerLink.style.display = 'none';
-// });
 createCart.addEventListener('click', function() {
      const newCard = document.createElement('div');
-     newCard.className = 'card';
+    const  newCardLink = document.getElementsByClassName('cart');
+    const showMoreButton = document.createElement("button");
+    const deleteButton = document.createElement('button');
+    newCard.className += 'cart';
      newCard.innerHTML = 'Создалась новая карточка';
-    cartFieldLink.appendChild(newCard);
+     cartFieldLink.appendChild(newCard);
+     containerLink.style.display = 'none';
+    showMoreButton.className += 'show-del-button';
+    showMoreButton.innerHTML = 'Show More';
+    deleteButton.className += 'show-del-button';
+    deleteButton.innerHTML = 'Delete';
+    for(let i = 0; i < newCardLink.length; i++) {
+        newCardLink[i].appendChild(deleteButton);
+        newCardLink[i].appendChild(showMoreButton);
+    }
 
-
-
-
-    //cartLink.style.display = 'inline-block';
-    containerLink.style.display = 'none';
 });
 
 
