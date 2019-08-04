@@ -2,17 +2,13 @@ const buttonLink = document.getElementById("modal-button");
 const containerLink = document.getElementById("modal-window");
 const closeBtn = document.getElementById('close-modal-btn');
 const createCart = document.getElementById('create-cart');
-const cartLink = document.getElementById('cart');
-const cartFieldLink = document.getElementById('card-field');
 
 class DoctorVisit {
     constructor(visitAim, name, type) {
         this.visitAim = visitAim;
         this.name = name;
         this.type = type;
-        this.html = `
-<span>${this.visitAim}</span>
-`;
+        this.html = `<p>Цель визита: ${this.visitAim}</p>`;
     }
 
     render() {
@@ -21,10 +17,8 @@ class DoctorVisit {
         const cart = document.createElement('div');
         cart.className += 'cart';
         const cartFieldLink = document.getElementById('card-field');
-        cart.innerHTML = `
-            <span>${this.name}</span>
-            <span>${this.type}</span>
-        `;
+        cart.innerHTML = `<p>ФИО:${this.name}</p>
+                          <p>${this.type}</p>`;
         cartFieldLink.appendChild(cart);
 
 
@@ -39,6 +33,7 @@ class DoctorVisit {
 
         showMoreButton.addEventListener("click", function () {
             self.showMore(cart);
+            showMoreButton.style.display = 'none';
         });
 
         deleteButton.addEventListener("click", function () {
@@ -48,6 +43,29 @@ class DoctorVisit {
         cart.appendChild(deleteButton);
         cart.appendChild(showMoreButton);
 
+        function move(e) {
+            cart.style.transform = `translate(${e.clientX - cart.mousePositionX}px,${e.clientY - cart.mousePositionY}px)`;
+        }
+
+        cart.addEventListener('mousedown',(e)=>{
+            if (cart.style.transform) {
+                const transforms = cart.style.transform;
+                const transformX = parseFloat(transforms.split('(')[1].split(',')[0]);
+                const transformY = parseFloat(transforms.split('(')[1].split(',')[1]);
+                cart.mousePositionX = e.clientX - transformX;
+                cart.mousePositionY = e.clientY - transformY;
+            } else {
+                cart.mousePositionX = e.clientX;
+                cart.mousePositionY = e.clientY;
+            }
+            cart.addEventListener('mousemove',move);
+        });
+
+        cart.addEventListener('mouseup', e => {
+            cart.removeEventListener('mousemove',move);
+        });
+
+        return cart;
     }
 
     showMore(elem) {
@@ -63,11 +81,9 @@ class Cardio extends DoctorVisit {
         this.pressure = pressure;
         this.illnesses = illnesses;
         this.age = age;
-        this.html += `
-<span>${this.pressure}</span>
-<span>${this.illnesses}</span>
-<span>${this.age}</span>
-        `;
+        this.html += `<p>Ваше давление: ${this.pressure}</p>
+                      <p>Заболевания: ${this.illnesses}</p>
+                      <p>Ваш возраст: ${this.age}</p>`;
         this.render();
     }
 }
@@ -76,9 +92,7 @@ class Dentist extends DoctorVisit {
     constructor(visitAim, name, lastVisit) {
         super(visitAim, name, "Стоматолог");
         this.lastVisit = lastVisit;
-        this.html += `
-        <span>${this.lastVisit}</span>
-        `;
+        this.html += `<p>Последний визит: ${this.lastVisit}</p>`;
         this.render();
     }
 }
@@ -87,10 +101,7 @@ class Therapist extends DoctorVisit {
     constructor(visitAim, name, age) {
         super(visitAim, name, "Терапевт");
         this.age = age;
-        this.html += `
-        <span>${this.age}</span>
-
-        `;
+        this.html += `<p>Ваш возраст ${this.age}</p>`;
         this.render();
     }
 }
@@ -131,7 +142,9 @@ function docVisit() {
         heart.style.display = 'block';
         age.style.display = 'block';
         fullName.style.display = 'block';
+
     }
+
 }
 
 let visit = document.getElementById('visit-aim');
@@ -147,29 +160,13 @@ buttonLink.addEventListener("click", function () {
 closeBtn.addEventListener('click', function () {
     containerLink.style.display = 'none';
 });
-// createCart.addEventListener('click', function () {
-//     const newCard = document.createElement('div');
-//     const newCardLink = document.getElementsByClassName('cart');
-//     const showMoreButton = document.createElement("button");
-//     const deleteButton = document.createElement('button');
-//     newCard.className += 'cart';
-//     newCard.innerHTML = 'Создалась новая карточка';
-//     cartFieldLink.appendChild(newCard);
-//     containerLink.style.display = 'none';
-//     showMoreButton.className += 'show-del-button';
-//     showMoreButton.innerHTML = 'Show More';
-//     deleteButton.className += 'show-del-button';
-//     deleteButton.innerHTML = 'Delete';
-//     for (let i = 0; i < newCardLink.length; i++) {
-//         newCardLink[i].appendChild(deleteButton);
-//         newCardLink[i].appendChild(showMoreButton);
-//     }
-// });
+
 createCart.addEventListener("click", function () {
     let value = {};
     let docList = document.getElementById('doctor-option');
     let userChoose = docList.options[docList.selectedIndex].value;
     const inputs = [...document.getElementsByClassName('input-style')];
+
 
     inputs.filter(function (item) {
        return item.style.display !== "none"
@@ -184,7 +181,4 @@ createCart.addEventListener("click", function () {
     } else if (userChoose === 'cardiology') {
         const cardiologyVisit = new Cardio(value["visit-aim"], value.name, value.pressure, value["heart-illnesses"], value.age);
     }
-});
-createCart.addEventListener("click", function () {
-
 });

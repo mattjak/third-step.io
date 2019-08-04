@@ -130,6 +130,7 @@ header{
     font-weight: 600;
 }
 .cart {
+    width: 200px;
     margin: 10px;
     background-color: #FFFFFF;
     color: #00cbf6;
