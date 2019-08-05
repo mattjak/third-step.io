@@ -2,6 +2,7 @@ const buttonLink = document.getElementById("modal-button");
 const containerLink = document.getElementById("modal-window");
 const closeBtn = document.getElementById('close-modal-btn');
 const createCart = document.getElementById('create-cart');
+const modalCont = document.getElementById('card-field')
 
 class DoctorVisit {
     constructor(visitAim, name, type) {
@@ -24,10 +25,10 @@ class DoctorVisit {
 
         const showMoreButton = document.createElement("button");
         const deleteButton = document.createElement('button');
-        showMoreButton.className = 'show-del-button';
+        showMoreButton.className = 'show-button';
         showMoreButton.innerHTML = 'Show More';
-        deleteButton.className = 'show-del-button';
-        deleteButton.innerHTML = 'Delete';
+        deleteButton.className = 'del-button';
+        deleteButton.innerHTML = 'X';
 
         const self = this;
 
@@ -69,7 +70,7 @@ class DoctorVisit {
     }
 
     showMore(elem) {
-        const span = document.createElement("span");
+        const span = document.createElement("p");
         span.innerHTML = this.html;
         elem.appendChild(span);
     }
@@ -160,6 +161,9 @@ buttonLink.addEventListener("click", function () {
 closeBtn.addEventListener('click', function () {
     containerLink.style.display = 'none';
 });
+modalCont.addEventListener('click', function() {
+    containerLink.style.display = 'none';
+})
 
 createCart.addEventListener("click", function () {
     let value = {};
