@@ -3,6 +3,7 @@ const containerLink = document.getElementById("modal-window");
 const closeBtn = document.getElementById('close-modal-btn');
 const createCart = document.getElementById('create-cart');
 const modalCont = document.getElementById('card-field');
+const comment = document.getElementById("comments-field");
 
 class DoctorVisit {
     constructor(visitAim, name, type) {
@@ -77,32 +78,38 @@ class DoctorVisit {
 }
 
 class Cardio extends DoctorVisit {
-    constructor(visitAim, name, pressure, illnesses, age) {
+    constructor(visitAim, name, pressure, illnesses, age, comment) {
         super(visitAim, name, "Кардиолог");
         this.pressure = pressure;
         this.illnesses = illnesses;
         this.age = age;
+        this.comment = comment;
         this.html += `<p>Ваше давление: ${this.pressure}</p>
                       <p>Заболевания: ${this.illnesses}</p>
-                      <p>Ваш возраст: ${this.age}</p>`;
+                      <p>Ваш возраст: ${this.age}</p>
+                      <p>Коментарий: ${this.comment}`;
         this.render();
     }
 }
 
 class Dentist extends DoctorVisit {
-    constructor(visitAim, name, lastVisit) {
+    constructor(visitAim, name, lastVisit, comment) {
         super(visitAim, name, "Стоматолог");
         this.lastVisit = lastVisit;
-        this.html += `<p>Последний визит: ${this.lastVisit}</p>`;
+        this.comment = comment;
+        this.html += `<p>Последний визит: ${this.lastVisit}</p>
+                      <p>Коментарий: ${this.comment}`;
         this.render();
     }
 }
 
 class Therapist extends DoctorVisit {
-    constructor(visitAim, name, age) {
+    constructor(visitAim, name, age, comment) {
         super(visitAim, name, "Терапевт");
         this.age = age;
-        this.html += `<p>Ваш возраст ${this.age}</p>`;
+        this.comment = comment;
+        this.html += `<p>Ваш возраст: ${this.age}</p>
+                       <p>Коментарий: ${this.comment}`;
         this.render();
     }
 }
@@ -145,7 +152,6 @@ function docVisit() {
         fullName.style.display = 'block';
 
     }
-
 }
 
 let visit = document.getElementById('visit-aim');
@@ -172,10 +178,10 @@ createCart.addEventListener("click", function () {
     const inputs = [...document.getElementsByClassName('input-style')];
     const centrMessage = document.getElementById('message');
 
+
     if (modalCont.children.length >=1) {
         centrMessage.style.display = 'none'
     }
-
 
     inputs.filter(function (item) {
        return item.style.display !== "none"
@@ -184,10 +190,10 @@ createCart.addEventListener("click", function () {
     });
 
     if (userChoose === 'dentist') {
-        const dentistVisit = new Dentist(value["visit-aim"], value.name, value["last-visit-date"]);
+        const dentistVisit = new Dentist(value["visit-aim"], value.name, value["last-visit-date"], comment.value);
     } else if (userChoose === 'therapist') {
-        const therapistVisit = new Therapist(value["visit-aim"], value.name, value.age);
+        const therapistVisit = new Therapist(value["visit-aim"], value.name, value.age, comment.value);
     } else if (userChoose === 'cardiology') {
-        const cardiologyVisit = new Cardio(value["visit-aim"], value.name, value.pressure, value["heart-illnesses"], value.age);
+        const cardiologyVisit = new Cardio(value["visit-aim"], value.name, value.pressure, value["heart-illnesses"], value.age, comment.value);
     }
 });
