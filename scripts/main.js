@@ -2,7 +2,7 @@ const buttonLink = document.getElementById("modal-button");
 const containerLink = document.getElementById("modal-window");
 const closeBtn = document.getElementById('close-modal-btn');
 const createCart = document.getElementById('create-cart');
-const modalCont = document.getElementById('card-field')
+const modalCont = document.getElementById('card-field');
 
 class DoctorVisit {
     constructor(visitAim, name, type) {
@@ -163,13 +163,18 @@ closeBtn.addEventListener('click', function () {
 });
 modalCont.addEventListener('click', function() {
     containerLink.style.display = 'none';
-})
+});
 
 createCart.addEventListener("click", function () {
     let value = {};
     let docList = document.getElementById('doctor-option');
     let userChoose = docList.options[docList.selectedIndex].value;
     const inputs = [...document.getElementsByClassName('input-style')];
+    const centrMessage = document.getElementById('message');
+
+    if (modalCont.children.length >=1) {
+        centrMessage.style.display = 'none'
+    }
 
 
     inputs.filter(function (item) {
